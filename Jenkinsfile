@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/sizning_github_ismingiz/portfolio.git'
+                git branch: 'main', url: 'https://github.com/AbdulbositAbdurahimovDeveloper/portfolio.git'
             }
         }
 
