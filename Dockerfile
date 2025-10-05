@@ -24,7 +24,8 @@ FROM nginx:1.23-alpine
 
 # "builder" bosqichida yaratilgan 'build' papkasini Nginx'ning
 # HTML fayllari uchun mo'ljallangan papkasiga nusxalaymiz
-COPY --from=builder /app/build /usr/share/nginx/html
+#COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Nginx'ni React Router bilan to'g'ri ishlashi uchun sozlaymiz
 # (Bu qadam agar sizda bir nechta sahifa bo'lsa kerak bo'ladi, hozircha ixtiyoriy)
