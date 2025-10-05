@@ -1,0 +1,82 @@
+/* Asosiy "Skills" bo'limi */
+.skillsSection {
+    position: relative;
+    padding: 6rem 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effekti uchun */
+}
+
+/* Rasm ustidagi kuchli qora qatlam (Overlay) */
+.skillsOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 24, 39, 0.9); /* 90% shaffoflikdagi to'q ko'k-qora rang */
+    z-index: 1;
+}
+
+/* Ichki konteyner */
+.skillsContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative; /* Overlay ustida turishi uchun */
+    z-index: 2;
+}
+
+/* Bo'lim sarlavhasi ("Technologies") */
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #E5E7EB;
+}
+
+/* Ikonkalar uchun setka (grid) */
+.skillsGrid {
+    display: grid;
+    /* Ustunlar soni ekranga qarab moslashadi */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 2.5rem; /* Ikonkalar orasidagi masofa */
+}
+
+/* Har bir ikonka uchun kartochka */
+.skillCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #D1D5DB; /* Boshlang'ich kulrang */
+}
+
+/* Ikonka ustiga sichqoncha borganda */
+.skillCard:hover {
+    transform: scale(1.1) translateY(-5px); /* Kattalashish va yuqoriga siljish */
+    color: #4ADE80; /* Yashil rang (fon rasmidagi rangga mos) */
+}
+
+/* Ikonkaning o'zi */
+.skillIcon {
+    font-size: 3.5rem; /* Ikonka o'lchami */
+}
+
+/* Ikonka ostidagi matn (texnologiya nomi) */
+.skillName {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* --- Mobil Qurilmalar Uchun Moslashuv --- */
+@media screen and (max-width: 768px) {
+    .skillsGrid {
+        gap: 2rem;
+    }
+    .skillIcon {
+        font-size: 3rem;
+    }
+}

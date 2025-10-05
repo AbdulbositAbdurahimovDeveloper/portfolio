@@ -1,0 +1,57 @@
+{
+  "navbar": {
+    "about": "Men Haqimda",
+    "technologies": "Texnologiyalar",
+    "projects": "Loyihalarim",
+    "contact": "Bog'lanish"
+  },
+  "hero": {
+    "greeting": "Salom, mening ismim",
+    "name": "Abdulbosit Abdurahimov",
+    "title": "Men veb uchun ilovalar yarataman.",
+    "description": "Men ajoyib raqamli tajribalarni yaratishga (va ba'zan loyihalashga) ixtisoslashgan Java Backend dasturchisiman. Hozirda mening asosiy e'tiborim mustahkam va kengaytiriladigan backend tizimlarini qurishga qaratilgan."
+  },
+  "about": {
+    "title": "Men Haqimda",
+    "paragraph1": "Salom! Mening ismim Abdulbosit va men internetda yashaydigan narsalarni yaratishni yaxshi ko'raman. Veb-dasturlashga bo'lgan qiziqishim 2023-yilda Telegram bot yaratishga qaror qilganimda boshlangan — ma'lum bo'lishicha, kichik bir ilovani yig'ish menga Java va backend tizimlari haqida ko'p narsani o'rgatdi!",
+    "paragraph2": "Bugungi kunga kelib, men bir nechta murakkab loyihalarda ishlash sharafiga muyassar bo'ldim. Hozirgi kunda mening asosiy e'tiborim mijozlarimiz uchun mustahkam va kengaytiriladigan backend tizimlarini qurishga qaratilgan.",
+    "skillsTitle": "So'nggi paytlarda men ishlayotgan bir nechta texnologiyalar:",
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Docker"
+    ]
+  },
+  "projects": {
+    "title": "Men Yaratgan Loyihalar",
+    "olx_title": "OLX-Backend",
+    "olx_desc": "Mashhur OLX veb-saytidan ilhomlangan e'lonlar platformasi uchun mustahkam backend tizimi. Foydalanuvchilarni boshqarish, e'lonlar va xabarlar uchun xavfsiz REST API'larni o'z ichiga oladi.",
+    "education_title": "Online-Education",
+    "education_desc": "O'qituvchilarga kurslar yaratish va video materiallarni boshqarish imkonini beruvchi onlayn ta'lim platformasi uchun backend. Interaktiv Telegram botni o'z ichiga oladi. *Eslatma: bot test ma'lumotlaridan foydalanadi.*",
+    "oromland_title": "Oromland",
+    "oromland_desc": "Sanatoriy va oromgohlar uchun platforma yaratishga qaratilgan yopiq startap loyihasida ishtirok etganman. Bu yopiq manbali loyiha bo'lgani uchun kod repozitoriysi ommaga ochiq emas.",
+    "view_code": "Kodni ko'rish",
+    "live_demo": "Saytga o'tish",
+    "test_bot": "Botni sinash",
+    "private_repo": "Yopiq Repozitoriy"
+  },
+  "contact": {
+    "subtitle": "04. Keyingisi Nima?",
+    "title": "Bog'laning",
+    "paragraph": "Garchi hozirda yangi imkoniyatlarni faol izlamayotgan bo'lsam-da, mening emailim doim ochiq. Savolingiz bo'lsa yoki shunchaki salom demoqchi bo'lsangiz, sizga javob berishga harakat qilaman!",
+    "buttonText": "Salom Deyish",
+    "terminal_prompt": "'help' yozing va Enter tugmasini bosing",
+    "terminal_help_title": "Mavjud kommandalar:",
+    "terminal_help_email": "'email' - Aloqa tugmasini ko'rsatadi.",
+    "terminal_help_social": "'social' - Ijtimoiy tarmoqlarni ko'rsatadi.",
+    "terminal_help_clear": "'clear' - Terminal ekranini tozalaydi.",
+    "terminal_not_found": "Kommanda topilmadi.",
+    "email_response": "Aloqa tugmasi markazda ko'rsatildi.",
+    "social_response": "Ijtimoiy tarmoqlar:",
+    "say_hello": "Salom Deyish",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "navbar": {
+    "about": "About Me",
+    "technologies": "Technologies",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, my name is",
+    "name": "Abdulbosit Abdurahimov",
+    "title": "I build things for the web.",
+    "description": "I'm a Java Backend developer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I’m focused on building robust and scalable backend systems."
+  },
+  "about": {
+    "title": "About Me",
+    "paragraph1": "Hello! My name is Abdulbosit and I enjoy creating things that live on the internet. My interest in web development started back in 2023 when I decided to try building a Telegram bot — turns out hacking together a custom little app taught me a lot about Java and backend systems!",
+    "paragraph2": "Fast-forward to today, I’ve had the privilege of working on several challenging projects. My main focus these days is building robust and scalable backend systems for our clients.",
+    "skillsTitle": "Here are a few technologies I’ve been working with recently:",
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Docker"
+    ]
+  },
+  "projects": {
+    "title": "Things I’ve Built",
+    "olx_title": "OLX-Backend",
+    "olx_desc": "A robust backend system for a classifieds platform, inspired by the popular OLX website. Features secure REST API endpoints for user management, advertisements, and messaging.",
+    "education_title": "Online-Education",
+    "education_desc": "An e-learning platform backend empowering instructors to manage courses and video content. Includes an interactive Telegram bot. *Note: The bot uses test data.*",
+    "oromland_title": "Oromland",
+    "oromland_desc": "Contributed to a private startup project to create a platform for sanatoriums and camps. As a closed-source project, the code repository is not public.",
+    "view_code": "View Code",
+    "live_demo": "Live Demo",
+    "test_bot": "Test the Bot",
+    "private_repo": "Private Repo"
+  },
+  "contact": {
+    "subtitle": "04. What's Next?",
+    "title": "Get In Touch",
+    "paragraph": "Although I’m not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll do my best to get back to you!",
+    "buttonText": "Say Hello",
+    "terminal_prompt": "Type 'help' and press Enter",
+    "terminal_help_title": "Available commands:",
+    "terminal_help_email": "'email' - Displays the contact button.",
+    "terminal_help_social": "'social' - Displays social links.",
+    "terminal_help_clear": "'clear' - Clears the terminal screen.",
+    "terminal_not_found": "Command not found.",
+    "email_response": "Contact button displayed in center.",
+    "social_response": "Social Links:",
+    "say_hello": "Say Hello",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram"
+  }
+}

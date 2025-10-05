@@ -1,0 +1,247 @@
+.contactSection {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image: var(--bg-mobile);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    padding-top: 80px;
+    /*padding: 2rem;*/
+    z-index: 5; /* Lower than navbar's z-index: 1000 */
+}
+
+/* Desktop background */
+@media (min-width: 769px) {
+    .contactSection {
+        background-image: var(--bg-desktop);
+    }
+}
+
+.terminal {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #0F0;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    font-family: 'Fira Code', monospace;
+    color: #0F0;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.lines {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.line {
+    margin-bottom: 0.5rem;
+    white-space: pre-wrap;
+}
+
+.inputLine {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.prompt {
+    color: #0F0;
+    margin-right: 0.5rem;
+}
+
+.input {
+    background: none;
+    border: none;
+    color: #0F0;
+    font-family: inherit;
+    font-size: 1rem;
+    flex: 1;
+    outline: none;
+    caret-color: #0F0;
+}
+
+.cursor {
+    color: #0F0;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.buttonArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.emailButton {
+    display: inline-block;
+    color: #F9FAFB;
+    border: 1px solid #4B5563;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-family: 'Fira Code', monospace;
+    text-decoration: none;
+    background: linear-gradient(90deg, #8B5CF6, #4F46E5);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.5s ease;
+}
+
+.emailButton.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.emailButton.visible:hover {
+    transform: scale(1.05);
+}
+
+.socialContainer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+    border-radius: 10px;
+    padding: 0.5rem;
+    width: 60px; /* Initial width to fit icon */
+    justify-content: center;
+    overflow: hidden;
+}
+
+.icon {
+    font-size: 3rem;
+    transition: all 0.3s ease;
+    margin-right: 0;
+    z-index: 1;
+}
+
+.label {
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Desktop hover effects */
+@media (min-width: 769px) {
+    .socialLink:hover {
+        width: 160px; /* Expand to show text */
+        justify-content: flex-start;
+    }
+
+    .socialLink:hover .icon {
+        margin-right: 0.5rem;
+        transform: translateX(0);
+    }
+
+    .socialLink:hover .label {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Brand colors on hover */
+    .socialLink:nth-child(1):hover {
+        background: #333; /* GitHub grey */
+        color: #FFF;
+    }
+
+    .socialLink:nth-child(1):hover .icon,
+    .socialLink:nth-child(1):hover .label {
+        color: #FFF;
+    }
+
+    .socialLink:nth-child(2):hover {
+        background: #0A66C2; /* LinkedIn */
+        color: #FFF;
+    }
+
+    .socialLink:nth-child(2):hover .icon,
+    .socialLink:nth-child(2):hover .label {
+        color: #FFF;
+    }
+
+    .socialLink:nth-child(3):hover {
+        background: #0088cc; /* Telegram */
+        color: #FFF;
+    }
+
+    .socialLink:nth-child(3):hover .icon,
+    .socialLink:nth-child(3):hover .label {
+        color: #FFF;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .contactSection {
+        padding: 1rem;
+    }
+
+    .terminal {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    .lines {
+        height: 150px;
+    }
+
+    .input {
+        font-size: 0.9rem;
+    }
+
+    .socialContainer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .socialLink {
+        width: auto;
+        justify-content: center;
+    }
+
+    .icon {
+        font-size: 2.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .label {
+        opacity: 1;
+        transform: translateX(0);
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,27 @@
+/* --- CSS RESET --- */
+
+/* Barcha elementlardan standart margin va padding'ni olib tashlash */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Eng muhim qoida! */
+}
+
+/* Asosiy html va body uchun sozlamalar */
+html {
+    scroll-behavior: smooth; /* Havolalarni bosganda silliq aylantirish */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Bu shriftni keyinroq ulaymiz */
+    background-color: #111827; /* Asosiy fon rangi */
+    color: #E5E7EB; /* Asosiy matn rangi */
+    /* Bu qator gorizontal scroll'ni oldini olishga yordam beradi */
+    overflow-x: hidden;
+}
+
+/* Rasmlar va boshqa media elementlar uchun */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}

@@ -1,0 +1,133 @@
+/* Asosiy Hero Section konteyneri */
+.heroSection {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+
+    /* Orqa fon rasmi uchun sozlamalar */
+    /* Endi rasm yo'lini CSS o'zgaruvchisidan olamiz */
+    background-image: var(--bg-desktop);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Rasm ustidagi yarim-shaffof qora qatlam (Overlay) */
+.heroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Asosiy kontent (matnlar va tugmalar) */
+.heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+/* Ism-sharif uchun stil */
+.heroName {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #A78BFA, #4ADE80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+/* Unvon uchun stil */
+.heroTitle {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #E5E7EB;
+    margin-bottom: 1.5rem;
+}
+
+/* Tavsif uchun stil */
+.heroDescription {
+    font-size: 1.125rem;
+    color: #D1D5DB;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+/* Tugmalar guruhi */
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Asosiy tugma (Contact Me) */
+.contactButton {
+    background-color: #8B5CF6;
+    color: #FFFFFF;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contactButton:hover {
+    background-color: #7C3AED;
+    transform: translateY(-2px);
+}
+
+/* Qo'shimcha tugma (Download CV) */
+.cvButton {
+    background-color: transparent;
+    color: #E5E7EB;
+    padding: 0.75rem 2rem;
+    border: 2px solid #6B7280;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cvButton:hover {
+    background-color: #6B7280;
+    color: #FFFFFF;
+    border-color: #6B7280;
+}
+
+/* Mobil qurilmalar uchun moslashuv */
+@media screen and (max-width: 768px) {
+    /* MOBIL UCHUN RASMNI ALMASHTIRISH */
+    .heroSection {
+        background-image: var(--bg-mobile);
+    }
+
+    .heroName {
+        font-size: 2.5rem;
+    }
+    .heroTitle {
+        font-size: 1.8rem;
+    }
+    .heroDescription {
+        font-size: 1rem;
+    }
+    .buttonGroup {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .contactButton, .cvButton {
+        width: 100%;
+        max-width: 300px;
+    }
+}

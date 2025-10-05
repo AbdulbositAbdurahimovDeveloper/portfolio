@@ -1,0 +1,158 @@
+/* Asosiy Navbar konteyneri */
+.navbar {
+    position: fixed; /* Sahifaning tepasida qotib turishi uchun */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #111827; /* To'q fon rangi */
+    z-index: 1000; /* Boshqa elementlarning ustida turishi uchun */
+    height: 60px; /* Boshlang'ich balandlik */
+    transition: height 0.3s ease-in-out; /* Balandlik o'zgarishi uchun silliq animatsiya */
+    display: flex;
+    align-items: center;
+}
+
+/* Navbar ustiga sichqoncha borganda kattalashish effekti */
+.navbar:hover {
+    height: 80px;
+}
+
+/* Ichki konteyner (elementlarni chekkalardan surib turish uchun) */
+.navbarContainer {
+    width: 100%;
+    max-width: 1200px; /* Maksimal kenglik */
+    margin: 0 auto; /* Markazga joylashtirish */
+    padding: 0 2rem; /* Yonlardan joy qoldirish */
+    display: flex;
+    justify-content: space-between; /* Elementlarni chekkalarga yoyish */
+    align-items: center;
+}
+
+/* Logotip stillari */
+.logo a {
+    color: #E5E7EB; /* Och kulrang */
+    font-size: 2rem; /* Katta shrift */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: #A78BFA; /* Binafsha rang */
+}
+
+/* Havolalar ro'yxati (ul) uchun stillar */
+.navLinks {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Havolalar orasidagi masofa */
+    margin: 0;
+    padding: 0;
+}
+
+/* Har bir havola (a) uchun stillar */
+.navLinks a {
+    color: #D1D5DB; /* Kulrang */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative; /* Chiziqcha animatsiyasi uchun */
+    padding-bottom: 0.25rem;
+}
+
+/* Havola ustiga sichqoncha borganda */
+.navLinks a:hover {
+    color: #FFFFFF; /* Oq rang */
+}
+
+/* Chiziqcha animatsiyasi */
+.navLinks a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #A78BFA; /* Binafsha rang */
+    transition: width 0.3s ease;
+}
+
+.navLinks a:hover::after {
+    width: 100%;
+}
+
+
+/* Tilni o'zgartirish tugmasi */
+.languageSwitcher button {
+    background-color: transparent;
+    border: 1px solid #4B5563; /* Kulrang chegara */
+    color: #E5E7EB;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.languageSwitcher button:hover {
+    background-color: #374151;
+    border-color: #A78BFA;
+}
+
+/* --- Mobil qurilmalar uchun stillar --- */
+
+/* Mobil menyu ikonkasi (boshida ko'rinmaydi) */
+.menuIcon {
+    display: none;
+    cursor: pointer;
+    color: #E5E7EB;
+}
+
+.rightSide {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Media Query: Ekran kengligi 768px dan kichik bo'lganda... */
+@media screen and (max-width: 768px) {
+    /* Havolalar ro'yxatini yashiramiz va uni mobil menyuga aylantiramiz */
+    .navLinks {
+        display: flex;
+        flex-direction: column; /* Elementlarni vertikal joylashtirish */
+        position: absolute;
+        top: 80px; /* Navbar balandligidan pastda */
+        left: -100%; /* Boshida ekrandan tashqarida */
+        width: 100%;
+        background-color: #1F2937; /* Orqa fon */
+        padding: 2rem 0;
+        text-align: center;
+        transition: left 0.4s ease-in-out; /* Silliq chiqish animatsiyasi */
+    }
+
+    /* Agar menyu OCHIQ bo'lsa (.navLinksOpen klassi qo'shilganda) */
+    .navLinksOpen {
+        left: 0; /* Ekranning chap chetiga keladi (ko'rinadi) */
+    }
+
+    .navLinks a {
+        font-size: 1.5rem; /* Shriftni kattalashtirish */
+        width: 100%;
+        display: block;
+        padding: 1rem 0;
+    }
+
+    .navLinks a:hover {
+        background-color: #374151;
+    }
+
+    .navLinks a::after {
+        display: none; /* Pastki chiziqcha animatsiyasini olib tashlash */
+    }
+
+    /* Burger menyu ikonkasini ko'rsatish */
+    .menuIcon {
+        display: block;
+    }
+}
