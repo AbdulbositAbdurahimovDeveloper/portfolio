@@ -45,7 +45,7 @@ pipeline {
                             docker pull ${IMAGE_NAME}:latest && \
                             docker stop portfolio-frontend-container || true && \
                             docker rm portfolio-frontend-container || true && \
-                            docker run -d --name portfolio-frontend-container -p 80:80 ${IMAGE_NAME}:latest
+                            docker run -d --name portfolio-frontend-container -p 9999:80 ${IMAGE_NAME}:latest
                         '
                     '''
                 }
