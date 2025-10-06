@@ -1,62 +1,59 @@
 pipeline {
-    agent any
+    agent any // Jenkins agentida ishlaydi
+
+    tools {
+        // Agar Jenkins agentida Node.js o'rnatilgan bo'lsa va uni bu yerda boshqarmoqchi bo'lsangiz
+        // node 'NodeJs_20' // Jenkinsda 'NodeJs_20' nomli Node.js konfiguratsiyasi bo'lsa
+    }
 
     environment {
-        // Docker Hub'dagi akkauntingiz nomini yozing
-        DOCKER_USERNAME = 'abdulbositabdurahimovdeveloper'
-        IMAGE_NAME = "${DOCKER_USERNAME}/portfolio-frontend"
+        // Imej nomi faqat shu serverda ishlatiladigan bo'lgani uchun oddiyroq bo'lishi mumkin
+        // Foydalanuvchi nomi endi shart emas.
+        IMAGE_NAME = "portfolio-frontend" // Imej uchun nom
+        CONTAINER_NAME = 'portfolio-frontend-container' // Konteyner uchun nom
+        PORT = '9999' // Ilova ishlaydigan port
     }
 
     stages {
-        stage('Clone Repository') {
+        stage('1. Clone Repository') {
             steps {
+                cleanWs() // Ish joyini tozalash
+                echo 'Klonlash boshlandi...'
                 git branch: 'main', url: 'https://github.com/AbdulbositAbdurahimovDeveloper/portfolio.git'
+                echo 'Repo muvaffaqiyatli olindi.'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('2. Build Docker Image') {
             steps {
                 script {
-                    // Docker image'ini yaratamiz
-                    sh "docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} ."
-                    sh "docker tag ${IMAGE_NAME}:${BUILD_NUMBER} ${IMAGE_NAME}:latest"
+                    echo "Docker image qurilmoqda: ${IMAGE_NAME}:${env.BUILD_NUMBER}"
+                    // >>> MUHIM: Dockerfile ichidagi Node.js versiyasini 20+ ga yangilashni unutmang! <<<
+                    // FROM node:18-alpine ni FROM node:20-alpine ga o'zgartiring
+                    sh "docker build -t ${IMAGE_NAME}:${env.BUILD_NUMBER} ."
+                    sh "docker tag ${IMAGE_NAME}:${env.BUILD_NUMBER} ${IMAGE_NAME}:latest"
+                    echo "Docker image muvaffaqiyatli qurildi: ${IMAGE_NAME}:${env.BUILD_NUMBER} va ${IMAGE_NAME}:latest"
                 }
             }
         }
 
-        stage('Push to Docker Hub') {
+        stage('3. Deploy Application') {
             steps {
-                // Docker Hub'ga login qilish uchun Jenkins'da saqlangan credential'lardan foydalanamiz
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    sh "echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin"
-                    sh "docker push ${IMAGE_NAME}:${BUILD_NUMBER}"
-                    sh "docker push ${IMAGE_NAME}:latest"
-                }
-            }
-        }
+                echo "Mavjud ${CONTAINER_NAME} konteyneri o'chirilmoqda (agar mavjud bo'lsa)..."
+                sh "docker rm -f ${CONTAINER_NAME} || true"
 
-        stage('Deploy to Server') {
-            steps {
-                // Serverga SSH orqali ulanib, yangi containerni ishga tushiramiz
-                // Jenkins'da server uchun SSH credential'lari sozlanishi kerak
-                sshagent(['server-ssh-credentials']) {
-                    sh '''
-                        ssh -o StrictHostKeyChecking=no user@server_ip '
-                            docker pull ${IMAGE_NAME}:latest && \
-                            docker stop portfolio-frontend-container || true && \
-                            docker rm portfolio-frontend-container || true && \
-                            docker run -d --name portfolio-frontend-container -p 9999:80 ${IMAGE_NAME}:latest
-                        '
-                    '''
-                }
+                echo "Konteyner ishga tushirilmoqda: ${CONTAINER_NAME} ${PORT} portida"
+                // Yangi konteynerni ishga tushiramiz, avtomatik qayta ishga tushirish siyosati bilan
+                sh "docker run -d --name ${CONTAINER_NAME} -p ${PORT}:80 --restart unless-stopped ${IMAGE_NAME}:latest"
+                echo "Ilova http://localhost:${PORT} manzilida Jenkins hostida ishga tushdi."
             }
         }
     }
 
     post {
         always {
-            // Har doim Docker Hub'dan logout qilamiz
-            sh "docker logout"
+            echo 'Pipeline tugadi. Ish joyini tozalash...'
+            cleanWs()
         }
     }
 }
