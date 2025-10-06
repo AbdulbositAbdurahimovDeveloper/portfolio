@@ -1,10 +1,10 @@
 pipeline {
     agent any // Jenkins agentida ishlaydi
 
-    tools {
+    // tools {
         // Agar Jenkins agentida Node.js o'rnatilgan bo'lsa va uni bu yerda boshqarmoqchi bo'lsangiz
         // node 'NodeJs_20' // Jenkinsda 'NodeJs_20' nomli Node.js konfiguratsiyasi bo'lsa
-    }
+    // }
 
     environment {
         // Imej nomi faqat shu serverda ishlatiladigan bo'lgani uchun oddiyroq bo'lishi mumkin
